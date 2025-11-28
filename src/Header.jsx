@@ -1,21 +1,48 @@
 import { useState } from "react";
+import GroceryList from './GroceryList'
 
-function Header(){
-    const[title, setTitle] = useState("My Title")
-    const[counter, setCounter] = useState(0);
-
-    function addItem(){
-        setTitle("New Title");
-        setCounter(counter+1);
+export default function Header(){
+    let dataTest = { "items":[
+        {
+            "name": "bread",
+            "quantity": "3"
+        },
+        {
+            "name": "milk",
+            "quantity": "5"
+        },
+        {
+            "name": "beer",
+            "quantity": "2"
+        }]
     }
+
+    const [list, setList] = useState(dataTest.items);
+
+    const [inputValue, setInputValue] = useState("");
+    const [newItem, setNewItem] = useState("");
+
+    function clickButton (e) {
+        let nuevo = {
+            "name": inputValue,
+            "quantity": "2"
+        }
+       setList([...list, nuevo])
+        setInputValue("");
+    };
+
     return (
         <>
-            <h1>{title}</h1>
-            <h2>Counter = {counter}</h2>
-            <input type = "text"></input>
-            <button onClick = {addItem}>Add</button>
+            <h1>Grocery List</h1>
+            <input 
+                type = "text" 
+                placeholder="e.g. eggs"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+            />
+
+            <button onClick={clickButton}>Add</button>
+            <GroceryList listItems={list}/>
         </>
     );
 }
-
-export default Header

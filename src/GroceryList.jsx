@@ -1,14 +1,25 @@
+import { useState } from "react";
 import Item from "./Item";
 
-function GroceryList({}){  
-    let list = ["eggs", "milk", "bread", "tomatoes"];
+function GroceryList({listItems}){ 
+    
+    function borrar(){
+        
+    }
 
-    let itemSequence = list.map((item, i) => <Item item={item}></Item>)
-     
+    let itemSequence = listItems.map((item, index) => 
+        <Item 
+            key={index} 
+            item={item.name}
+            quantity={item.quantity}
+            onDelete={()=>borrar()}
+        ></Item>);
+    
+
     return (
-        <>
+        <ul>
             {itemSequence}
-        </>
+        </ul>
     )
 }
 
