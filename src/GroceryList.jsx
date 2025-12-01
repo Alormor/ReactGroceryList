@@ -1,10 +1,15 @@
 import { useState } from "react";
 import Item from "./Item";
 
-function GroceryList({listItems}){ 
+function GroceryList({listItems, onEdit, onRemove}){ 
     
-    function borrar(){
-        
+
+    function edit(index){
+        onEdit(index);
+    }
+
+    function remove(index){
+        onRemove(index);
     }
 
     let itemSequence = listItems.map((item, index) => 
@@ -12,7 +17,8 @@ function GroceryList({listItems}){
             key={index} 
             item={item.name}
             quantity={item.quantity}
-            onDelete={()=>borrar()}
+            onEdit={()=>edit(index)}
+            onDelete={()=>remove(index)}
         ></Item>);
     
 

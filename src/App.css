@@ -8,3 +8,35 @@
 body{
   background-color: khaki;
 }
+
+button{
+  cursor: pointer;
+  border-style: none;
+  background-color: khaki;
+}
+
+input{
+  margin: 5px;
+  height: 25px;
+}
+
+#quantity{
+  width: 40px;
+}
+
+ul{
+  text-align: left;
+  list-style: none;
+}
+
+#add{
+  background-color: crimson;
+  padding: 8px;
+  border-radius: 15%;
+  margin: 5px;
+}
+
+#removeAll{
+  color: red;
+  font-size: 2rem;
+}

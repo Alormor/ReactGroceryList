@@ -1,19 +1,10 @@
-import { useState } from "react";
-
-export default function Item({item, quantity, onDelete}){  
+export default function Item({item, quantity, onEdit, onDelete}){  
     var item = item.charAt(0).toUpperCase()+item.substring(1);
-    
-    const [isEditing, setIsEditing] = useState(false);
-    const [inputValue, setInputValue] = useState(item);
+    if(!quantity) quantity = 1;
 
-
-    const handleEdit = () => {
-
-    }
-    
     return (
         <>
-            <li>{item} - {quantity} <button onClick={handleEdit}>✏️</button> <button onClick={onDelete}>🗑️</button></li>
+            <li>{item} - {quantity} <button onClick={onEdit}>✏️</button> <button onClick={onDelete}>🗑️</button></li>
         </>
     );
 }
